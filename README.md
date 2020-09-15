@@ -7,3 +7,5 @@ this is the App`s design mock-up https://www.figma.com/file/4HmNv7FxuKKneRTrqMti
 
 
 bruuuuuuuuh 
+
+i can't code i need to sleep now ...........
