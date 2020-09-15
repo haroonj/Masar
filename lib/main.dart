@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/loading_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,14 +14,7 @@ class MyApp extends StatelessWidget {
 
       home: SafeArea(
         child: Scaffold(
-          body: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/flashwlc.png"),
-                fit: BoxFit.cover,
-              )
-            ),
-          ),
+          body: LoadingScreen()
         ),
       ),
     );
