@@ -9,3 +9,4 @@ this is the App`s design mock-up https://www.figma.com/file/4HmNv7FxuKKneRTrqMti
 bruuuuuuuuh 
 
 i can't code i need to sleep now ...........
+i dont know who gonna keep pushing to the repo but im sleeping at desk XD, hope im gonna make it and back before we kicked out of this :C
