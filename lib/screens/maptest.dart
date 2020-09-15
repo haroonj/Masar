@@ -98,7 +98,6 @@ class MapSampleState extends State<MapSample> {
         mapType: MapType.terrain,
         initialCameraPosition: _kGooglePlex,
         markers: Set.of((marker != null) ? [marker] : []),
-        circles: Set.of((circle != null) ? [circle] : []),
         onMapCreated: (GoogleMapController controller) {
           _controller = controller;
         },
