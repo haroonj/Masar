@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masar/screens/maptest.dart';
 import 'screens/loading_screen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
 
       home: SafeArea(
         child: Scaffold(
-          body: LoadingScreen()
+          body: MapSample()
         ),
       ),
     );
