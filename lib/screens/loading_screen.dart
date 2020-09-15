@@ -18,7 +18,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           Image.asset('images/loadinglogo.png'),
           Center(
             child: Text(
-              'Hold on for a second...',
+              'Hold on for a second..',
               style: TextStyle(fontSize: 24,color: Colors.white),
             ),
           ),
