@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -148,61 +149,113 @@ class MapSampleState extends State<MapSample> {
           'Masar',
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
-      ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            mapType: MapType.hybrid,
-            initialCameraPosition: _kGooglePlex,
-            markers: Set.of((marker != null) ? [marker] : []),
-            onMapCreated: (GoogleMapController controller) {
-              setState(() {
-                _controller = controller;
-              });
-            },
-          ),
-          Positioned(
-            left: 40,
-            bottom: 40,
-            child: FloatingActionButton(
-              child: Icon(Icons.location_searching),
-              onPressed: () {
-                getCurrentLocation();
-              },
+        leading: Row(
+          children: [
+            SizedBox(
+              width: 8,
             ),
-          ),
-          Positioned(
-            top: 30,
-            right: 15,
-            left: 15,
-            child: Container(
-              height: 50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.white,
+            Expanded(
+              child: Image.asset(
+                'images/logo.png',
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Where to go',
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.only(left: 15, top: 15),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.search),
-                    onPressed: search,
-                    iconSize: 30,
-                  ),
+            ),
+          ],
+        ),
+      ),
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 22.0, left: 22, right: 22, bottom: 40),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Container(
+                height: 50,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(color: Color(0xff8B0505), spreadRadius: 0),
+                  ],
                 ),
-                onChanged: (val) {
-                  setState(() {
-                    searchAddress = val;
-                  });
-                },
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Where to go',
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 15, top: 15),
+                    suffixIcon: IconButton(
+                      color: Color(0xff8B0505),
+                      icon: Icon(
+                        Icons.search,
+                      ),
+                      onPressed: search,
+                      iconSize: 30,
+                    ),
+                  ),
+                  onChanged: (val) {
+                    setState(() {
+                      searchAddress = val;
+                    });
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Stack(
+                children: [
+                  GoogleMap(
+                    zoomControlsEnabled: false,
+                    compassEnabled: false,
+                    mapType: MapType.hybrid,
+                    initialCameraPosition: _kGooglePlex,
+                    markers: Set.of((marker != null) ? [marker] : []),
+                    onMapCreated: (GoogleMapController controller) {
+                      setState(() {
+                        _controller = controller;
+                      });
+                    },
+                  ),
+                  Positioned(
+                    right: 10,
+                    bottom: 50,
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.grey[700],
+                        child: Icon(Icons.location_searching),
+                        onPressed: () {
+                          getCurrentLocation();
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
+      floatingActionButton: Container(
+        width: 125,
+        child: FittedBox(
+          child: FloatingActionButton.extended(
+            shape: CircleBorder(),
+            onPressed: () {
+              // Add your onPressed code here!
+            },
+            label: Text(
+              'GO',
+              style: TextStyle(fontSize: 22),
+            ),
+            backgroundColor: Color(0xff8B0505),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterFloat,
     );
   }
 }
