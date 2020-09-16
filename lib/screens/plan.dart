@@ -15,7 +15,8 @@ class _PlanState extends State<Plan> {
         centerTitle: true,
         title: Text(
           'Masar',
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold,fontFamily: "Poppins"),
+          style: TextStyle(
+              fontSize: 28, fontWeight: FontWeight.bold, fontFamily: "Poppins"),
         ),
         leading: Row(
           children: [
@@ -35,15 +36,32 @@ class _PlanState extends State<Plan> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Center(child: Text('Here is your Masar!',style: TextStyle(fontSize: 22,fontFamily: "Poppins",color: Color(0xff8B0505),),)),
+              Center(
+                child: Text(
+                  'Here is your Masar!',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontFamily: "Poppins",
+                    color: Color(0xff8B0505),
+                  ),
+                ),
+              ),
+              Center(
+                child: Text(
+                  "To be continued... ",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontFamily: "Poppins",
 
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
-
     );
   }
 }
