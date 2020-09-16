@@ -95,7 +95,7 @@ class MapSampleState extends State<MapSample> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: GoogleMap(
-        mapType: MapType.terrain,
+        mapType: MapType.hybrid,
         initialCameraPosition: _kGooglePlex,
         markers: Set.of((marker != null) ? [marker] : []),
         onMapCreated: (GoogleMapController controller) {
