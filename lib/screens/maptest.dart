@@ -189,7 +189,7 @@ class MapSampleState extends State<MapSample> {
                 ),
                 onChanged: (val) {
                   setState(() {
-                    searchAddress = val;0
+                    searchAddress = val;
                   });
                 },
               ),
