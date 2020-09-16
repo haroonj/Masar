@@ -6,7 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:geolocator/geolocator.dart' as gl;
+import 'package:masar/screens/plan.dart';
 import 'package:masar/uti.dart';
+
 
 class MapSample extends StatefulWidget {
   @override
@@ -147,7 +149,7 @@ class MapSampleState extends State<MapSample> {
         centerTitle: true,
         title: Text(
           'Masar',
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold,fontFamily: "Poppins"),
         ),
         leading: Row(
           children: [
@@ -206,6 +208,8 @@ class MapSampleState extends State<MapSample> {
               child: Stack(
                 children: [
                   GoogleMap(
+
+                    myLocationEnabled: true,
                     zoomControlsEnabled: false,
                     compassEnabled: false,
                     mapType: MapType.hybrid,
@@ -217,21 +221,7 @@ class MapSampleState extends State<MapSample> {
                       });
                     },
                   ),
-                  Positioned(
-                    right: 10,
-                    bottom: 50,
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      child: FloatingActionButton(
-                        backgroundColor: Colors.grey[700],
-                        child: Icon(Icons.location_searching),
-                        onPressed: () {
-                          getCurrentLocation();
-                        },
-                      ),
-                    ),
-                  ),
+
                 ],
               ),
             ),
@@ -244,11 +234,13 @@ class MapSampleState extends State<MapSample> {
           child: FloatingActionButton.extended(
             shape: CircleBorder(),
             onPressed: () {
-              // Add your onPressed code here!
-            },
+              Navigator.push (
+                context,
+                MaterialPageRoute(builder: (context) => Plan()),
+              );           },
             label: Text(
               'GO',
-              style: TextStyle(fontSize: 22),
+              style: TextStyle(fontSize: 22,fontFamily: "Poppins"),
             ),
             backgroundColor: Color(0xff8B0505),
           ),
