@@ -7,7 +7,6 @@ import 'package:location/location.dart';
 import 'package:geolocator/geolocator.dart' as gl;
 import 'package:masar/uti.dart';
 
-
 class MapSample extends StatefulWidget {
   @override
   State<MapSample> createState() => MapSampleState();
@@ -93,11 +92,10 @@ class MapSampleState extends State<MapSample> {
   }
 
   void search() {
-
     if (_locationSubscription != null) {
       _locationSubscription.cancel();
     }
-    if(searchAddress == '0'){
+    if (searchAddress == '0') {
       _controller.animateCamera(
         CameraUpdate.newCameraPosition(
           CameraPosition(
@@ -105,12 +103,10 @@ class MapSampleState extends State<MapSample> {
                 buses[0].lat,
                 buses[0].lng,
               ),
-              zoom: 18.0
-          ),
+              zoom: 18.0),
         ),
       );
-    }
-    else {
+    } else {
       _controller.animateCamera(
         CameraUpdate.newCameraPosition(
           CameraPosition(
@@ -118,17 +114,18 @@ class MapSampleState extends State<MapSample> {
                 buses[1].lat,
                 buses[1].lng,
               ),
-              zoom: 18.0
-          ),
+              zoom: 18.0),
         ),
       );
     }
     matureDistance();
   }
 
-  void matureDistance ()async{
-    gl.Position position = await gl.getCurrentPosition(desiredAccuracy: gl.LocationAccuracy.high );
-    double distance =  gl.distanceBetween(position.latitude, position.longitude, buses[1].lat, buses[1].lng);
+  void matureDistance() async {
+    gl.Position position =
+        await gl.getCurrentPosition(desiredAccuracy: gl.LocationAccuracy.high);
+    double distance = gl.distanceBetween(
+        position.latitude, position.longitude, buses[1].lat, buses[1].lng);
     print(distance);
   }
 
@@ -143,6 +140,15 @@ class MapSampleState extends State<MapSample> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff8B0505),
+        elevation: 50,
+        centerTitle: true,
+        title: Text(
+          'Masar',
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Stack(
         children: [
           GoogleMap(
